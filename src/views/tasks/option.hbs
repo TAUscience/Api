@@ -1,0 +1,32 @@
+<div class="max-w-7xl mx-auto mt-12">
+    <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
+        <table class="w-full border-collapse">
+            <thead>
+                <tr class="bg-green-500 text-white">
+                    <th class="w-1/4 py-2">Titulo</th>
+                    <th class="w-1/2 py-2">Descripción</th>
+                    <th class="w-28 py-2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each registros}}
+                <tr class="border-b border-gray-200">
+                    <td class="p-3">{{titulo}}</td>
+                    <td class="p-3 text-center">{{descripcion}}</td>
+                    <td class="p-3 flex items-center space-x-2">
+                        <form action="/tasks/delete" method="POST">
+                            <input type="hidden" value="{{id}}" name="id">
+                            <button class="bg-red-500 text-white px-3 py-1 rounded-full" type="submit">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </form>
+                        <a href="/tasks/edit/{{id}}" class="bg-green-500 text-white px-3 py-1 rounded-full">
+                            <i class="fas fa-pen"></i>
+                        </a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
